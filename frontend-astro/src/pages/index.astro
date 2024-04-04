@@ -5,7 +5,6 @@ import Modal from "../components/modal/modal";
 import Heading from "../components/heading/heading";
 import Button from "../components/button/button";
 import { Image } from "astro:assets";
-import { db, Comment } from "astro:db";
 
 export const prerender = false;
 
@@ -19,14 +18,8 @@ if (Astro.request.method === "POST") {
   const formData = await Astro.request.formData();
   const authori = formData.get("author");
   const content = formData.get("content");
-  if (typeof authori === "string" && typeof content === "string") {
-    // Insert form data into the Comment table
-    await db.insert(Comment).values({ author: authori, body: content });
-  }
+  console.log(authori, content);
 }
-
-const comments = await db.select().from(Comment);
-console.log(comments);
 ---
 
 <Layout title="Front page">
@@ -64,17 +57,6 @@ console.log(comments);
           <Button style="primary" type="submit">Submit</Button>
         </div>
       </form>
-      <div class="my-6">
-        <Heading level="h2" size="small">Comments from db</Heading>
-        {
-          comments.map(({ author, body }) => (
-            <article class="border border-black p-2 m-2">
-              <p class="mb-2">Author: {author}</p>
-              <p>Message: {body}</p>
-            </article>
-          ))
-        }
-      </div>
     </div>
 
     {
