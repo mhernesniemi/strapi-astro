@@ -9,5 +9,6 @@ import tailwind from "@astrojs/tailwind";
 export default defineConfig({
   integrations: [preact(), sitemap(), tailwind()],
   output: "hybrid",
-  adapter: cloudflare()
+  adapter: cloudflare(),
+  site: "https://strapi-astro.pages.dev/",
 });
