@@ -7,7 +7,7 @@ import tailwind from "@astrojs/tailwind";
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [preact(), sitemap(), tailwind()],
+  integrations: [preact({ compat: true }), sitemap(), tailwind()],
   output: "hybrid",
   adapter: cloudflare(),
   site: "https://strapi-astro.pages.dev/",
