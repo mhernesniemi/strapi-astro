@@ -23,7 +23,7 @@ export default function Heading({
         size === "large" && "text-2xl lg:text-3xl mb-6",
         size === "medium" && "text-xl lg:text-2xl mb-6",
         size === "small" && "text-xl",
-        zeroMargin && "!mb-0"
+        zeroMargin && "!mb-0",
       )}
     >
       {children}
