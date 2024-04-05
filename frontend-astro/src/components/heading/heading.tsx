@@ -1,5 +1,3 @@
-import React from "@astrojs/react";
-
 import clsx from "clsx";
 
 interface HeadingProps {
