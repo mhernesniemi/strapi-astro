@@ -10,5 +10,5 @@ export default defineConfig({
   integrations: [sitemap(), tailwind(), react()],
   output: "hybrid",
   adapter: cloudflare(),
-  site: "https://strapi-astro.pages.dev/"
+  site: "https://strapi-astro.pages.dev/",
 });
