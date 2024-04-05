@@ -1,3 +1,5 @@
+import React from "preact/compat";
+
 interface HeadingProps {
   level: "h1" | "h2" | "h3" | "h4";
   size?: "xl" | "large" | "medium" | "small";
