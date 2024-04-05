@@ -1,4 +1,5 @@
 ---
+import Heading from "../components/heading/heading";
 import Layout from "../layouts/Layout.astro";
 
 const response = await fetch("https://strapi-nxls.onrender.com/api/articles");
@@ -11,6 +12,9 @@ const { data } = await response.json();
     {
       data.map(({ attributes }) => (
         <article>
+          <Heading level="h2" size="medium">
+            {attributes.Title}
+          </Heading>
           <p>{attributes.Body}</p>
         </article>
       ))
