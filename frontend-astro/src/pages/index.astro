@@ -1,9 +1,10 @@
 ---
+import { BlocksRenderer } from "@strapi/blocks-react-renderer";
 import Heading from "../components/heading/heading";
 import Modal from "../components/modal/modal";
 import Layout from "../layouts/Layout.astro";
 
-const response = await fetch("https://strapi-nxls.onrender.com/api/articles");
+const response = await fetch(import.meta.env.STRAPI_URL + "articles");
 
 const { data } = await response.json();
 
@@ -26,7 +27,7 @@ console.log(data);
           <Heading level="h2" size="medium">
             {attributes.Title}
           </Heading>
-          <p>{attributes.Body}</p>
+          <BlocksRenderer content={attributes.Blocks} />
         </article>
       ))
     }
