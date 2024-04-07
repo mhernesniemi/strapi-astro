@@ -15,9 +15,6 @@
     "Title": {
       "type": "string"
     },
-    "Body": {
-      "type": "richtext"
-    },
     "Blocks": {
       "type": "blocks"
     }
