@@ -3,8 +3,11 @@ import { BlocksRenderer } from "@strapi/blocks-react-renderer";
 import Heading from "../components/heading/heading";
 import Modal from "../components/modal/modal";
 import Layout from "../layouts/Layout.astro";
+import { Accordion } from "../components/accordion/accordion-wrapper";
 
-const response = await fetch(import.meta.env.STRAPI_URL + "articles");
+const response = await fetch(
+  import.meta.env.STRAPI_URL + "articles?populate=*",
+);
 
 const { data } = await response.json();
 
@@ -21,13 +24,19 @@ console.log(data);
       <li><a href="subpage">Subpage</a></li>
       <li><a href="other-page">Other</a></li>
     </ul>
+
     {
       data?.map(({ attributes }) => (
         <article>
           <Heading level="h2" size="medium">
-            {attributes.Title}
+            {attributes.title}
           </Heading>
-          <BlocksRenderer content={attributes.Blocks} />
+          <BlocksRenderer content={attributes.blocks} />
+          <div>
+            {attributes.Accordion.map(({ title, body }) => (
+              <Accordion data={[{ title, body }]} client:idle />
+            ))}
+          </div>
         </article>
       ))
     }

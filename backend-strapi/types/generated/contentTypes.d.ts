@@ -374,8 +374,9 @@ export interface ApiArticleArticle extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    Title: Attribute.String;
-    Blocks: Attribute.Blocks;
+    title: Attribute.String;
+    blocks: Attribute.Blocks;
+    Accordion: Attribute.Component<'components.accordion', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

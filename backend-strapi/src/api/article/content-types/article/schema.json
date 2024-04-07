@@ -12,11 +12,16 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "Title": {
+    "title": {
       "type": "string"
     },
-    "Blocks": {
+    "blocks": {
       "type": "blocks"
+    },
+    "Accordion": {
+      "type": "component",
+      "repeatable": true,
+      "component": "components.accordion"
     }
   }
 }
