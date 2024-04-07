@@ -17,6 +17,9 @@
     },
     "Body": {
       "type": "richtext"
+    },
+    "Blocks": {
+      "type": "blocks"
     }
   }
 }

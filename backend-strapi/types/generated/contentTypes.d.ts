@@ -376,6 +376,7 @@ export interface ApiArticleArticle extends Schema.CollectionType {
   attributes: {
     Title: Attribute.String;
     Body: Attribute.RichText;
+    Blocks: Attribute.Blocks;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
