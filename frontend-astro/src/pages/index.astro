@@ -1,5 +1,6 @@
 ---
 import Heading from "../components/heading/heading";
+import Modal from "../components/modal/modal";
 import Layout from "../layouts/Layout.astro";
 
 const response = await fetch("https://strapi-nxls.onrender.com/api/articles");
@@ -9,10 +10,14 @@ const { data } = await response.json();
 
 <Layout title="Welcome to Astro.">
   <main class="max-w-screen-xl mx-auto my-20">
+    <Heading level="h1" size="xl">This content comes from Strapi</Heading>
+    <Modal id="test-modal" openButton="Avaa" client:idle>
+      Opened modal text</Modal
+    >
     {
       data.map(({ attributes }) => (
         <article>
-          <Heading level="h2" size="medium" client:load>
+          <Heading level="h2" size="medium">
             {attributes.Title}
           </Heading>
           <p>{attributes.Body}</p>
