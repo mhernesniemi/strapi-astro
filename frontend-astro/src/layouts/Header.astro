@@ -1,0 +1,25 @@
+---
+import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
+---
+
+<header class="flex justify-between items-center py-2 px-10 bg-slate-400">
+  <div class="w-20 h-20 bg-slate-400">
+    <a href="/"><img src="/favicon.svg" alt="Site Logo" /></a>
+  </div>
+  <nav>
+    <ul class="flex gap-3">
+      <li><a href="/">Konserni --</a></li>
+      <li><a href="#">Liiketoimintamme</a></li>
+      <li><a href="#">Sijoittajat --</a></li>
+      <li><a href="#">Ajankohtaista</a></li>
+      <li><a href="#">Yhteystiedot</a></li>
+    </ul>
+  </nav>
+
+  <div>
+    <a href="/search" class="flex items-center gap-2">
+      <div>Hae sivustolta</div>
+      <MagnifyingGlassIcon className="w-6 h-6 stroke-2" />
+    </a>
+  </div>
+</header>
