@@ -32,11 +32,9 @@ console.log(data);
             {attributes.title}
           </Heading>
           <BlocksRenderer content={attributes.blocks} />
-          <div>
-            {attributes.Accordion.map(({ title, body }) => (
-              <Accordion data={[{ title, body }]} client:idle />
-            ))}
-          </div>
+          {attributes.Accordion && (
+            <Accordion data={attributes.Accordion} client:idle />
+          )}
         </article>
       ))
     }

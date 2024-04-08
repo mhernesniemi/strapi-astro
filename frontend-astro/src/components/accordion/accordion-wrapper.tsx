@@ -17,7 +17,10 @@ export function Accordion({ data }: Props) {
     <BaseAccordion type="single" collapsible className="w-full">
       {data.map((item, i) => {
         return (
-          <AccordionItem value={`item-${i.toFixed()}`}>
+          <AccordionItem
+            value={`item-${i.toFixed()}`}
+            key={`item-${i.toFixed()}`}
+          >
             <AccordionTrigger>{item.title}</AccordionTrigger>
             <AccordionContent>{item.body}</AccordionContent>
           </AccordionItem>
