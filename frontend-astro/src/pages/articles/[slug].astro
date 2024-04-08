@@ -6,9 +6,7 @@ import Layout from "../../layouts/Layout.astro";
 import { Accordion } from "../../components/accordion/accordion-wrapper";
 
 export async function getStaticPaths() {
-  const response = await fetch(
-    import.meta.env.STRAPI_URL + "articles?locale=fi",
-  );
+  const response = await fetch(import.meta.env.STRAPI_URL + "articles");
 
   const { data } = await response.json();
 
