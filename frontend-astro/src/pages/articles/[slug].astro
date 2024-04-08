@@ -36,9 +36,8 @@ console.log(data.attributes.image);
   <Heading level="h1" size="xl">{data.attributes.title}</Heading>
   <!-- <Modal id="test-modal" openButton="Avaa" client:idle> Avattu modaali. </Modal> -->
   <CldImage
-    id={data.attributes.image.data.attributes.hash}
-    width="600"
-    ext={data.attributes.image.data.attributes.ext}
+    dataAttributes={data.attributes.image.data.attributes}
+    width={445}
   />
   <article>
     <RichText>
