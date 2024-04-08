@@ -5,7 +5,9 @@ import Dropdown from "../components/dropdown/dropdown";
 
 <header class="flex justify-between items-center py-2 px-10 bg-slate-400">
   <div class="w-20 h-20 bg-slate-400">
-    <a href="/"><img src="/favicon.svg" alt="Site Logo" /></a>
+    <a href={Astro.currentLocale === "en" ? "/en" : "/"}
+      ><img src="/favicon.svg" alt="Site Logo" /></a
+    >
   </div>
   <nav>
     <ul class="flex gap-8">
@@ -13,14 +15,16 @@ import Dropdown from "../components/dropdown/dropdown";
         <Dropdown
           label="Konserni"
           items={[
-            { title: "Finnish", url: "/" },
-            { title: "English", url: "/en" },
-            { title: "Swedish", url: "/sv" },
+            { title: "Linkki yks", url: "/" },
+            { title: "Linkki kaks", url: "/" },
+            { title: "Kolmas linkki", url: "/" },
           ]}
           client:idle
         />
       </li>
-      <li><a href="#">Liiketoimintamme</a></li>
+      <li>
+        <a href="#">Liiketoimintamme</a>
+      </li>
       <li>
         <Dropdown
           label="Sijoittajat"
@@ -41,9 +45,8 @@ import Dropdown from "../components/dropdown/dropdown";
     <Dropdown
       label="Language"
       items={[
-        { title: "Linkki yks", url: "/" },
-        { title: "Linkki kaks", url: "/" },
-        { title: "Kolmas linkki", url: "/" },
+        { title: "Finnish", url: "/" },
+        { title: "English", url: "/en" },
       ]}
       client:idle
     />

@@ -1,0 +1,46 @@
+---
+import { BlocksRenderer } from "@strapi/blocks-react-renderer";
+import Heading from "../../components/heading/heading";
+import RichText from "../../components/rich-text/rich-text";
+import Layout from "../../layouts/Layout.astro";
+import { Accordion } from "../../components/accordion/accordion-wrapper";
+
+export async function getStaticPaths() {
+  const response = await fetch(
+    import.meta.env.STRAPI_URL + "articles?locale=fi",
+  );
+
+  const { data } = await response.json();
+
+  const paths = data.map((article) => {
+    return {
+      params: {
+        slug: article.id,
+      },
+    };
+  });
+  return paths;
+}
+
+const { slug } = Astro.params;
+
+const res = await fetch(import.meta.env.STRAPI_URL + "articles/" + slug);
+
+const { data } = await res.json();
+---
+
+<Layout title={data.attributes.title}>
+  <Heading level="h1" size="xl">{data.attributes.title}</Heading>
+  <!-- <Modal id="test-modal" openButton="Avaa" client:idle> Avattu modaali. </Modal> -->
+
+  <article>
+    <RichText>
+      <BlocksRenderer content={data.attributes.blocks} />
+    </RichText>
+    {
+      data.attributes.Accordion && (
+        <Accordion data={data.attributes.Accordion} client:idle />
+      )
+    }
+  </article>
+</Layout>
