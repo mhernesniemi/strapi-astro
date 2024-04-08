@@ -1,5 +1,6 @@
 ---
 import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
+import Dropdown from "../components/dropdown/dropdown";
 ---
 
 <header class="flex justify-between items-center py-2 px-10 bg-slate-400">
@@ -7,16 +8,45 @@ import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
     <a href="/"><img src="/favicon.svg" alt="Site Logo" /></a>
   </div>
   <nav>
-    <ul class="flex gap-3">
-      <li><a href="/">Konserni --</a></li>
+    <ul class="flex gap-8">
+      <li>
+        <Dropdown
+          label="Konserni"
+          items={[
+            { title: "Finnish", url: "/" },
+            { title: "English", url: "/en" },
+            { title: "Swedish", url: "/sv" },
+          ]}
+          client:idle
+        />
+      </li>
       <li><a href="#">Liiketoimintamme</a></li>
-      <li><a href="#">Sijoittajat --</a></li>
+      <li>
+        <Dropdown
+          label="Sijoittajat"
+          items={[
+            { title: "Linkki yks", url: "/" },
+            { title: "Linkki kaks", url: "/" },
+            { title: "Kolmas linkki", url: "/" },
+          ]}
+          client:idle
+        />
+      </li>
       <li><a href="#">Ajankohtaista</a></li>
       <li><a href="#">Yhteystiedot</a></li>
     </ul>
   </nav>
 
-  <div>
+  <div class="flex gap-10">
+    <Dropdown
+      label="Language"
+      items={[
+        { title: "Linkki yks", url: "/" },
+        { title: "Linkki kaks", url: "/" },
+        { title: "Kolmas linkki", url: "/" },
+      ]}
+      client:idle
+    />
     <a href="/search" class="flex items-center gap-2">
       <div>Hae sivustolta</div>
       <MagnifyingGlassIcon className="w-6 h-6 stroke-2" />
