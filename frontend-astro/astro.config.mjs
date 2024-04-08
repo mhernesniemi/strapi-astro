@@ -8,8 +8,10 @@ import react from "@astrojs/react";
 
 // https://astro.build/config
 export default defineConfig({
+  build: {
+    format: "file",
+  },
   integrations: [sitemap(), tailwind(), react(), pagefind()],
   output: "hybrid",
   adapter: cloudflare(),
-  site: "https://strapi-astro.pages.dev/",
 });

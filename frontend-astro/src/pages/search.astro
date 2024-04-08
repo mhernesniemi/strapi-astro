@@ -1,0 +1,12 @@
+---
+import Searchbar from "astro-pagefind/components/Search";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Haku">
+  <Searchbar
+    id="search"
+    className="pagefind-ui"
+    uiOptions={{ showImages: false, autofocus: true }}
+  />
+</Layout>

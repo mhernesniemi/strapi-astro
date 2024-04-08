@@ -15,28 +15,23 @@ console.log(data);
 ---
 
 <Layout title="Welcome to Astro.">
-  <main class="max-w-screen-xl mx-auto my-20">
-    <Heading level="h1" size="xl">This content comes from Strapi</Heading>
-    <Modal id="test-modal" openButton="Avaa" client:idle>
-      Opened modal text.
-    </Modal>
-    <ul>
-      <li><a href="subpage">Subpage</a></li>
-      <li><a href="other-page">Other</a></li>
-    </ul>
+  <Heading level="h1" size="xl">Tämä sisältö tulee Strapista</Heading>
+  <Modal id="test-modal" openButton="Avaa" client:idle> Avattu modaali. </Modal>
+  <ul>
+    <li><a href="search">Haku</a></li>
+  </ul>
 
-    {
-      data?.map(({ attributes }) => (
-        <article>
-          <Heading level="h2" size="medium">
-            {attributes.title}
-          </Heading>
-          <BlocksRenderer content={attributes.blocks} />
-          {attributes.Accordion && (
-            <Accordion data={attributes.Accordion} client:idle />
-          )}
-        </article>
-      ))
-    }
-  </main>
+  {
+    data?.map(({ attributes }) => (
+      <article>
+        <Heading level="h2" size="medium">
+          {attributes.title}
+        </Heading>
+        <BlocksRenderer content={attributes.blocks} />
+        {attributes.Accordion && (
+          <Accordion data={attributes.Accordion} client:idle />
+        )}
+      </article>
+    ))
+  }
 </Layout>
