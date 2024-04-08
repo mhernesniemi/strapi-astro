@@ -1,9 +1,15 @@
 ---
 import Searchbar from "astro-pagefind/components/Search";
 import Layout from "../layouts/Layout.astro";
+import { XMarkIcon } from "@heroicons/react/24/outline";
 ---
 
 <Layout title="Haku" width="small">
+  <a href="javascript:history.back()" class="flex gap-2 justify-end mb-6">
+    <div>Sulje haku</div>
+    <XMarkIcon className="w-6 h-6" />
+  </a>
+
   <Searchbar
     id="search"
     className="pagefind-ui"

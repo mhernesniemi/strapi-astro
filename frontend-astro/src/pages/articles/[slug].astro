@@ -4,6 +4,7 @@ import Heading from "../../components/heading/heading";
 import RichText from "../../components/rich-text/rich-text";
 import Layout from "../../layouts/Layout.astro";
 import { Accordion } from "../../components/accordion/accordion-wrapper";
+import CldImage from "../../components/cld-image/cld-image";
 
 export async function getStaticPaths() {
   const response = await fetch(import.meta.env.STRAPI_URL + "articles");
@@ -22,15 +23,23 @@ export async function getStaticPaths() {
 
 const { slug } = Astro.params;
 
-const res = await fetch(import.meta.env.STRAPI_URL + "articles/" + slug);
+const res = await fetch(
+  import.meta.env.STRAPI_URL + "articles/" + slug + "?populate=*",
+);
 
 const { data } = await res.json();
+
+console.log(data.attributes.image);
 ---
 
 <Layout title={data.attributes.title}>
   <Heading level="h1" size="xl">{data.attributes.title}</Heading>
   <!-- <Modal id="test-modal" openButton="Avaa" client:idle> Avattu modaali. </Modal> -->
-
+  <CldImage
+    id={data.attributes.image.data.attributes.hash}
+    width="600"
+    ext={data.attributes.image.data.attributes.ext}
+  />
   <article>
     <RichText>
       <BlocksRenderer content={data.attributes.blocks} />

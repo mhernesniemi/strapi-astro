@@ -380,6 +380,7 @@ export interface ApiArticleArticle extends Schema.CollectionType {
   };
   attributes: {
     title: Attribute.String &
+      Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -398,6 +399,12 @@ export interface ApiArticleArticle extends Schema.CollectionType {
         };
       }>;
     slug: Attribute.UID<'api::article.article', 'title'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    image: Attribute.Media &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;

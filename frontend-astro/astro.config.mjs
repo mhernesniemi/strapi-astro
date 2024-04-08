@@ -14,6 +14,9 @@ export default defineConfig({
   integrations: [sitemap(), tailwind(), react(), pagefind()],
   output: "hybrid",
   adapter: cloudflare(),
+  image: {
+    domains: ["res.cloudinary.com"],
+  },
   i18n: {
     defaultLocale: "fi",
     locales: ["fi", "en"],
