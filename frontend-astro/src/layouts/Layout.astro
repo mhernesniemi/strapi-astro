@@ -4,13 +4,14 @@ import Footer from "./Footer.astro";
 
 interface Props {
   title: string;
+  width?: "small" | "medium" | "large";
 }
 
-const { title } = Astro.props;
+const { title, width = "large" } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="fi">
+<html lang={Astro.currentLocale}>
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content="Astro description" />
@@ -22,7 +23,16 @@ const { title } = Astro.props;
   </head>
   <body>
     <Header />
-    <main class="max-w-screen-xl mx-auto my-20">
+    <main
+      class:list={[
+        "max-w-screen-xl mx-auto my-20",
+        {
+          "max-w-screen-md": width === "small",
+          "max-w-screen-lg": width === "medium",
+          "max-w-screen-xl": width === "large",
+        },
+      ]}
+    >
       <slot />
     </main>
     <Footer />
