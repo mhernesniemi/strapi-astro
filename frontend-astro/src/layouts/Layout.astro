@@ -22,9 +22,9 @@ const { title, width = "large" } = Astro.props;
     <title>{title}</title>
   </head>
   <body>
-    <div class="flex flex-col h-screen justify-between">
+    <div class="flex flex-col min-h-screen justify-between">
       <Header />
-      <div class="h-full">
+      <div class="flex-grow">
         <main
           class:list={[
             "mx-auto my-20",

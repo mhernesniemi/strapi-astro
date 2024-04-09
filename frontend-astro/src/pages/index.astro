@@ -1,9 +1,6 @@
 ---
-import { BlocksRenderer } from "@strapi/blocks-react-renderer";
 import Heading from "../components/heading/heading";
 import Layout from "../layouts/Layout.astro";
-import { Accordion } from "../components/accordion/accordion-wrapper";
-import RichText from "../components/rich-text/rich-text";
 
 const response = await fetch(import.meta.env.STRAPI_URL + "articles");
 
