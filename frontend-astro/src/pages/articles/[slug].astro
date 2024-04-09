@@ -28,17 +28,20 @@ const res = await fetch(
 );
 
 const { data } = await res.json();
-
-console.log(data.attributes.image);
 ---
 
 <Layout title={data.attributes.title}>
   <Heading level="h1" size="xl">{data.attributes.title}</Heading>
-  <!-- <Modal id="test-modal" openButton="Avaa" client:idle> Avattu modaali. </Modal> -->
-  <CldImage
-    dataAttributes={data.attributes.image.data.attributes}
-    width={445}
-  />
+
+  {
+    data.attributes.image.data && (
+      <CldImage
+        dataAttributes={data.attributes.image.data.attributes}
+        width={500}
+      />
+    )
+  }
+
   <article>
     <RichText>
       <BlocksRenderer content={data.attributes.blocks} />
