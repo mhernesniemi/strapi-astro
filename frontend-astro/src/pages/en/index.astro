@@ -20,9 +20,6 @@ const { data } = await response.json();
   {
     data?.map(({ attributes }) => (
       <article>
-        <RichText>
-          <BlocksRenderer content={attributes.blocks} />
-        </RichText>
         {attributes.Accordion && (
           <Accordion data={attributes.Accordion} client:idle />
         )}
