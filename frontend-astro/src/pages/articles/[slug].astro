@@ -28,8 +28,6 @@ const res = await fetch(
 );
 
 const { data } = await res.json();
-
-console.log(data.attributes.image.data.attributes.url);
 ---
 
 <Layout title={data.attributes.title}>
@@ -39,7 +37,7 @@ console.log(data.attributes.image.data.attributes.url);
     data.attributes.image.data && (
       <CldImage
         dataAttributes={data.attributes.image.data.attributes}
-        width={500}
+        width={700}
       />
     )
   }
