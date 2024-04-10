@@ -1,0 +1,30 @@
+---
+import { Image } from "astro:assets";
+
+interface Props {
+  dataAttributes: any;
+  width: number;
+  alt?: string;
+  resolution?: 1 | 1.5 | 2;
+}
+
+const { dataAttributes, width, alt, resolution = 1.5 } = Astro.props;
+
+const height = (width / dataAttributes.width) * dataAttributes.height;
+
+const retinaWidth = width * resolution;
+
+const wrapperStyle = {
+  width: width + "px",
+  height: height + "px",
+};
+---
+
+<div style={wrapperStyle}>
+  <Image
+    src={`https://res.cloudinary.com/dwrv366lk/image/upload/w_${retinaWidth}/${dataAttributes.hash}${dataAttributes.ext}`}
+    alt={alt || ""}
+    width={width}
+    height={height}
+  />
+</div>

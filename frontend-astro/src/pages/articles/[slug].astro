@@ -4,8 +4,7 @@ import Heading from "../../components/heading/heading";
 import RichText from "../../components/rich-text/rich-text";
 import Layout from "../../layouts/Layout.astro";
 import { Accordion } from "../../components/accordion/accordion-wrapper";
-import CldImage from "../../components/cld-image/cld-image";
-import { Image } from "astro:assets";
+import CldImage from "../../components/cld-image/CldImage.astro";
 
 export async function getStaticPaths() {
   const response = await fetch(import.meta.env.STRAPI_URL + "articles");
@@ -38,15 +37,9 @@ console.log(data.attributes.image.data.attributes.url);
 
   {
     data.attributes.image.data && (
-      // <CldImage
-      //   dataAttributes={data.attributes.image.data.attributes}
-      //   width={500}
-      // />
-      <Image
-        src={data.attributes.image.data.attributes.url}
-        alt=""
+      <CldImage
+        dataAttributes={data.attributes.image.data.attributes}
         width={500}
-        height={500}
       />
     )
   }
