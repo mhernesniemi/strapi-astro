@@ -45,9 +45,13 @@ console.log(data.attributes.image.data.attributes.url);
   }
 
   <article>
-    <RichText>
-      <BlocksRenderer content={data.attributes.blocks} />
-    </RichText>
+    {
+      data.attributes.blocks && (
+        <RichText>
+          <BlocksRenderer content={data.attributes.blocks} />
+        </RichText>
+      )
+    }
     {
       data.attributes.Accordion && (
         <Accordion data={data.attributes.Accordion} client:idle />
